@@ -10,6 +10,12 @@ import { AppComponent } from './app.component';
 import { extModules } from './build';
 import { CatEffects } from './ngrx/cat.effects';
 import { RouterModule } from '@angular/router';
+import { EntityDataModule, DefaultDataServiceConfig } from '@ngrx/data';
+import { entityConfig } from './entity-metadata';
+import { HttpClientModule } from '@angular/common/http';
+
+
+
 
 
 export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
@@ -19,6 +25,13 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
 
     return reducer(state, action);
   };
+}
+
+
+
+const defaultDataServiceConfig = {
+  root: 'https://jsonplaceholder.typicode.com/',
+  timeout: 3000, // request timeout
 }
 
 
@@ -45,9 +58,11 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
       { path: '', redirectTo: '/index', pathMatch:'full' },
       { path: 'index', component: AppComponent }
     ]),
-    PizzaModule
+    PizzaModule,
+    HttpClientModule,
+    EntityDataModule.forRoot(entityConfig)
   ],
-  providers: [],
+  providers: [{ provide: DefaultDataServiceConfig, useValue: defaultDataServiceConfig }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,3 +1,4 @@
+import { UserService } from './users.service';
 import { Component } from '@angular/core';
 import { select, Store } from '@ngrx/store';
 
@@ -14,9 +15,12 @@ export class AppComponent {
   title = 'app';
   cats$: any;
   length$: any;
-  constructor(private store: Store<AppState>) {
+  users$: any;
+  constructor(private store: Store<AppState>, private usersService:UserService) {
     this.cats$ = this.store.pipe(select('catList'));
     this.length$ = this.store.pipe(select(selectCatProperty));
+
+    this.users$ = this.usersService.getAll()
 
   }
 
