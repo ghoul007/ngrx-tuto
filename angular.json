@@ -34,6 +34,10 @@
                 {
                   "replace": "src/environments/environment.ts",
                   "with": "src/environments/environment.prod.ts"
+                },
+                {
+                  "replace": "src/app/build/index.ts",
+                  "with": "src/app/build/index.prod.ts"
                 }
               ],
               "optimization": true,
@@ -119,6 +123,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "app"
 }

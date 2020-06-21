@@ -20,7 +20,7 @@ export interface State {
 
 const _catListReducer = createReducer(intialState,
 
-    on(FetchCats, (state, { }) => {
+    on(FetchCats, state => {
         return { cats: state.cats }
     }),
     

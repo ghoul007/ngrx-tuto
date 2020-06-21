@@ -19,7 +19,6 @@ export class CatEffects {
                         return of(err);
                     }),
                     map(d => {
-                        console.log('object, ', d);
                         return AddCat({ cat: new Cat('rff') });
                     })
                 )

@@ -26,6 +26,5 @@ export class AppComponent {
     this.store.dispatch(CatAction.FetchCats({}));
     this.store.dispatch(CatAction.StartCats({}));
     // this.store.dispatch(CatAction.AddCat({ cat: new Cat('ahmed') }));
-    console.log('cat')
   }
 }
