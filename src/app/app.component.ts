@@ -23,7 +23,7 @@ export class AppComponent {
 
 
   getCat() {
-    this.store.dispatch(CatAction.FetchCats({}));
+    // this.store.dispatch(CatAction.FetchCats({}));
     this.store.dispatch(CatAction.StartCats({}));
     // this.store.dispatch(CatAction.AddCat({ cat: new Cat('ahmed') }));
   }

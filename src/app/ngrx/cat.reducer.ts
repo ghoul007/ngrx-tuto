@@ -25,6 +25,9 @@ const _catListReducer = createReducer(intialState,
     }),
     
     on(AddCat, (state, { cat}) => {
+
+        //  state.cats.push(cat);
+        // return state
         return { cats: [...state.cats, cat ]}
     })
 )
