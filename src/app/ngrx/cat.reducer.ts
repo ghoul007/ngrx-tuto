@@ -1,4 +1,5 @@
 import { createReducer, on } from '@ngrx/store';
+import { EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 
 import { Cat } from './cat';
 import { AddCat, FetchCats } from './cat.actions';
@@ -16,19 +17,19 @@ export interface State {
     cats: Cat[]
 }
 
-
+// export const adapter: EntityAdapter<Cat> = createEntityAdapter<Cat>();
 
 const _catListReducer = createReducer(intialState,
 
     on(FetchCats, state => {
         return { cats: state.cats }
     }),
-    
-    on(AddCat, (state, { cat}) => {
+
+    on(AddCat, (state, { cat }) => {
 
         //  state.cats.push(cat);
         // return state
-        return { cats: [...state.cats, cat ]}
+        return { cats: [...state.cats, cat] }
     })
 )
 

@@ -1,0 +1,24 @@
+<p>pizza-order works!</p>
+{{pizzas | async}}
+
+
+
+<div *ngFor="let pizza  of pizzas |async" >
+
+    <h3>Pizza Id : {{pizza.id}}</h3>
+    <h3>Pizza size : {{pizza.size}}</h3>
+    <button  (click)="removePizza(pizza.id)"  >delete</button>
+    <button  *ngIf="pizza.size==='small'" (click)="updatePizza(pizza.id, 'large')"  >migrate</button>
+</div>
+
+<button (click)="createPizza()">create</button>
+
+<hr>
+pizzaselectIds
+{{pizzaselectIds|async|json}}
+<hr>
+pizzaselectEntities
+{{pizzaselectEntities|async|json}}
+<hr>
+pizzaselectTotal
+{{pizzaselectTotal|async|json}}

@@ -1,3 +1,4 @@
+import { PizzaModule } from './pizza/pizza.module';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { EffectsModule } from '@ngrx/effects';
@@ -44,6 +45,7 @@ export function debug(reducer: ActionReducer<any>): ActionReducer<any> {
       { path: '', redirectTo: '/index', pathMatch:'full' },
       { path: 'index', component: AppComponent }
     ]),
+    PizzaModule
   ],
   providers: [],
   bootstrap: [AppComponent]
